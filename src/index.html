@@ -144,47 +144,35 @@
     </div>
 </div>
 
+
+<script type="text/javascript">
+    function addEmoji(){
+        //输入框随文字增加高度增加调用
+        var text = document.getElementById("textarea");
+        autoTextarea(text);// 调用
+        //添加表情
+        var emojiStr = '';
+        for(var i = 1;i <= 69;i++){
+            emojiStr += '<li><img src="emoji/'+ i +'.gif" title="[emoji:'+ i +']"></li>'
+        }
+        $('#emoji ul').html(emojiStr);
+        $('#emoji ul li img').click(function(){
+            var str = $('#textarea').val() + $(this).attr('title');
+            console.log(str);
+            $('#textarea').val(str);
+            $('#emoji').hide();
+        });
+
+        $(document).click(function(e){
+            if(e.target != $('#faceIcon')[0] && e.target != $('#faceIcon use')[0]){
+                $('#emoji').hide();
+            }
+        });  
+    }
+</script>
 <!--点击按钮和内容显示js-->
 <script src="js/more.js"></script>
 <!--判断是否连接js-->
 <script src="js/connect.js"></script>
-<script type="text/javascript">
-    //输入框随文字增加高度增加调用
-    var text = document.getElementById("textarea");
-    autoTextarea(text);// 调用
-
-    //添加表情
-    var emojiStr = '';
-    for(var i = 1;i <= 69;i++){
-        emojiStr += '<li><img src="emoji/'+ i +'.gif" title="[emoji:'+ i +']"></li>'
-    }
-    $('#emoji ul').html(emojiStr);
-    $('#emoji ul li img').click(function(){
-        var str = $('#textarea').val() + $(this).attr('title');
-        console.log(str);
-        $('#textarea').val(str);
-        $('#emoji').hide();
-    });
-
-    $(document).click(function(e){
-        if(e.target != $('#faceIcon')[0] && e.target != $('#faceIcon use')[0]){
-            $('#emoji').hide();
-        }
-    });
-
-
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>
