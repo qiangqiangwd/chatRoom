@@ -24,6 +24,16 @@ CqChart.prototype = {
         var loading1 = layer.load(2);
         //建立到服务器的socket连接
         this.socket = io.connect();
+        //检测是否连接上
+        setTimeout(function(){
+            var connectFlag = that.socket.connected;
+            if(!connectFlag){
+                layer.close(loading1);
+                layer.msg('连接失败！');
+                //标题改变
+                $('.loginTitle').text('服务器未开启或网速过慢，请稍后重试！');
+            }
+        },5000);
         //监听socket的connect事件，此事件表示连接已经建立
         this.socket.on('connect', function() {
             layer.close(loading1);
