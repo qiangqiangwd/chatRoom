@@ -39,6 +39,8 @@ CqChart.prototype = {
             layer.close(loading1);
             //标题改变
             $('.loginTitle').text('欢迎登录...');
+            //引入表情包
+            addEmoji();
             //显示输入框
             $('.loginBox').eq(0).show();
             //连接到服务器后，显示昵称输入框
@@ -148,20 +150,3 @@ CqChart.prototype = {
         scroll();
     }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
