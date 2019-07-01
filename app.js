@@ -2,20 +2,6 @@
  * Created by Administrator on 2017/9/5 0005.
  */
 
-// //引入http模块
-// var http = require('http'),
-// //创建一个服务器
-//     server = http.createServer(function(req, res) {
-//         res.writeHead(200, {
-//             'Content-Type': 'text/plain'
-//         });
-//         res.write('hello world!');
-//         res.end();
-//     });
-// //监听80端口
-// server.listen(80);
-// console.log('server started');
-
 var express = require('express'), //引入express模块
     app = express(),
     server = require('http').createServer(app),//引入http模块
@@ -69,36 +55,8 @@ io.on('connection',socket => {
     });
 });
 
-
-
-
-
-
-
 server.listen(8111,function(){
     var host = server.address().address;
     console.log('服务器开启成功！地址为： http://localhost:8111/');
     console.log(server.address());
-    // console.log('服务器开启成功！地址为： http://192.168.1.131:8111/');
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
